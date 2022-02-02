@@ -27,6 +27,10 @@ function draw() {
   hit2 = collideLineCircle(20, 20, 100, 50, playerX, playerY, 20);
 
   if (hit2 === false) {
+    playerX += abs(cos(dir));
+    playerY += abs(sin(dir));
+  }
+  else {
     if (keyIsDown(87)) {
       playerY += speed * sin(dir);
       playerX += speed * cos(dir);
