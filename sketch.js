@@ -5,11 +5,13 @@ let spaceBetweenRays = 5;
 let FOV = 60;
 let renderDist = 40;
 let dir = 0;
+let lines = [];
 
 function setup() {
   createCanvas(400, 400);
   angleMode(DEGREES);
   noCursor();
+  lines[0] = new LineClass(20, 20, 100, 50, -1, 1);
 }
 
 var hit = false;
@@ -21,33 +23,36 @@ function draw() {
   stroke(255);
 
   //Map
-  line(20, 20, 100, 50);
 
   //Keys
-  hit2 = collideLineCircle(20, 20, 100, 50, playerX, playerY, 20);
+  for(let i = 0; i < LineClass.length; i++) {
+    hit2 = collideLineCircle(lines[i].x1, lines[i].y1, lines[i].x2, lines[i].y2, playerX, playerY, 20);
+    if (hit2) {
+      playerX += xool*abs(cos(dir));
+      playerY += yool*abs(sin(dir));
+    }
+    else {
+      if (keyIsDown(87)) {
+        playerY += speed * sin(dir);
+        playerX += speed * cos(dir);
+      }
+      if (keyIsDown(83)) {
+        playerY -= speed * sin(dir);
+        playerX -= speed * cos(dir);
+      }
+      if (keyIsDown(65)) {
+        playerY -= speed * cos(dir);
+        playerX += speed * sin(dir);
+      }
+      if (keyIsDown(68)) {
+        playerY += speed * cos(dir);
+        playerX -= speed * sin(dir);
+      }
+    }
+  }
+  
 
-  if (hit2) {
-    playerX += abs(cos(dir));
-    playerY += abs(sin(dir));
-  }
-  else {
-    if (keyIsDown(87)) {
-      playerY += speed * sin(dir);
-      playerX += speed * cos(dir);
-    }
-    if (keyIsDown(83)) {
-      playerY -= speed * sin(dir);
-      playerX -= speed * cos(dir);
-    }
-    if (keyIsDown(65)) {
-      playerY -= speed * cos(dir);
-      playerX += speed * sin(dir);
-    }
-    if (keyIsDown(68)) {
-      playerY += speed * cos(dir);
-      playerX -= speed * sin(dir);
-    }
-  }
+  
 
 
 
@@ -65,5 +70,17 @@ function draw() {
     }
     line(playerX, playerY, endX, endY);
 
+  }
+}
+
+
+class LineClass {
+  constructor(x1, y1, x2, y2, xool, yool) {
+    this.x1 = x1;
+    this.y1 = y1;
+    this.x2 = x2;
+    this.y2 = y2;
+    this.xool = xool;
+    this.yool = yool;
   }
 }
