@@ -12,7 +12,9 @@ function setup() {
   angleMode(DEGREES);
   noCursor();
   lines[0] = new LineClass(400, 400, 400, 200, 1, 0);
-  lines[1] = new LineClass(400, 400, 200, 400, -1, 1);
+  lines[1] = new LineClass(400, 400, 200, 400, 0, 1);
+  lines[2] = new LineClass(200, 200, 200, 400, 0, 1);
+  lines[3] = new LineClass(200, 200, 400, 200, 0, 1);
   print(lines);
 }
 
