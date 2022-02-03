@@ -8,7 +8,7 @@ let dir = 0;
 let lines = [];
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1200, 800);
   angleMode(DEGREES);
   noCursor();
   lines[0] = new LineClass(20, 20, 100, 50, -1, 1);
