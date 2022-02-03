@@ -1,6 +1,6 @@
 let playerX = 200;
 let playerY = 200;
-let speed = 1;
+let speed = 0.4;
 let spaceBetweenRays = 5;
 let FOV = 60;
 let renderDist = 40;
@@ -11,6 +11,7 @@ function setup() {
   createCanvas(1200, 800);
   angleMode(DEGREES);
   noCursor();
+  frameRate(60);
   lines[0] = new LineClass(400, 400, 400, 200, 1, 0);
   lines[1] = new LineClass(400, 400, 200, 400, 0, 1);
   lines[2] = new LineClass(200, 200, 200, 400, -1, 0);
