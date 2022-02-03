@@ -1,6 +1,6 @@
 let playerX = 200;
 let playerY = 200;
-let speed = 0.4;
+let speed = 0.1;
 let spaceBetweenRays = 5;
 let FOV = 60;
 let renderDist = 40;
