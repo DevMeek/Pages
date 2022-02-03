@@ -50,12 +50,6 @@ function draw() {
       }
     }
   }
-  
-
-  
-
-
-
 
   dir += movedX;
 
