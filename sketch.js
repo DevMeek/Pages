@@ -37,7 +37,8 @@ function draw() {
       playerX += lines[i].xool*abs(cos(dir));
       playerY += lines[i].yool*abs(sin(dir));
     }
-    else if(i === lines.length -1) {
+    else if(i === 0) {
+    
       if (keyIsDown(87)) {
         playerY += speed * sin(dir);
         playerX += speed * cos(dir);
