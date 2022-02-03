@@ -11,8 +11,8 @@ function setup() {
   createCanvas(1200, 800);
   angleMode(DEGREES);
   noCursor();
-  lines[0] = new LineClass(100, 100, 100, 50, 1, 0);
-  lines[1] = new LineClass(20, 20, 100, 50, -1, 1);
+  lines[0] = new LineClass(400, 400, 400, 200, 1, 0);
+  lines[1] = new LineClass(400, 400, 200, 400, -1, 1);
   print(lines)
 }
 
