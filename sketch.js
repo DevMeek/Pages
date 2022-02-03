@@ -1,6 +1,6 @@
 let playerX = 200;
 let playerY = 200;
-let speed = 0.1;
+let speed = 1;
 let spaceBetweenRays = 5;
 let FOV = 60;
 let renderDist = 40;
@@ -37,7 +37,7 @@ function draw() {
       playerX += lines[i].xool*abs(cos(dir));
       playerY += lines[i].yool*abs(sin(dir));
     }
-    else if(i === lines.length) {
+    else if(i === lines.length -1) {
       if (keyIsDown(87)) {
         playerY += speed * sin(dir);
         playerX += speed * cos(dir);
