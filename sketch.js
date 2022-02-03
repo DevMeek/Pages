@@ -11,7 +11,9 @@ function setup() {
   createCanvas(1200, 800);
   angleMode(DEGREES);
   noCursor();
-  lines[0] = new LineClass(20, 20, 100, 50, -1, 1);
+  lines[0] = new LineClass(100, 100, 100, 50, 1, 0);
+  lines[1] = new LineClass(20, 20, 100, 50, -1, 1);
+  print(lines)
 }
 
 var hit = false;
@@ -25,11 +27,12 @@ function draw() {
   //Map
 
   //Keys
-  for(let i = 0; i < LineClass.length; i++) {
+  for(let i = 0; i < lines.length; i++) {
+    line(lines[i].x1, lines[i].y1, lines[i].x2, lines[i].y2);
     hit2 = collideLineCircle(lines[i].x1, lines[i].y1, lines[i].x2, lines[i].y2, playerX, playerY, 20);
     if (hit2) {
-      playerX += xool*abs(cos(dir));
-      playerY += yool*abs(sin(dir));
+      playerX += lines[i].xool*abs(cos(dir));
+      playerY += lines[i].yool*abs(sin(dir));
     }
     else {
       if (keyIsDown(87)) {
